@@ -1,9 +1,18 @@
 package fr.fms.entities;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+
+import fr.fms.dao.ArticleRepository;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -48,7 +57,7 @@ import javax.persistence.GenerationType;
 			this.description = description;
 			this.price=price;
 		}
-
+		
 		
 		
 		public Long getId() {

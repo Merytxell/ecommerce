@@ -2,14 +2,19 @@ package fr.fms.dao;
 import fr.fms.entities.Article;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 
 public interface ArticleRepository extends JpaRepository<Article,Long> {
+	
+	public Page <Article> findAll(Pageable pageable);
 	public List<Article> findByBrand(String brand);
 	public List <Article> findByBrandContains(String brand);
 	public List <Article> findByBrandAndPrice (String brand, double price);
@@ -44,6 +49,9 @@ public interface ArticleRepository extends JpaRepository<Article,Long> {
 	 */
 
 	}
+
+ 
+
 	
 	
 
